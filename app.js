@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initProjectFilter();
   initInteractiveTerminal();
+  initScrollProgress();
 });
 
 /**
@@ -205,4 +206,23 @@ function initInteractiveTerminal() {
       }[tag] || tag)
     );
   }
+}
+
+/**
+ * 4. Header scroll progress indicator
+ */
+function initScrollProgress() {
+  const progressEl = document.querySelector('.scroll-progress');
+  if (!progressEl) return;
+
+  const updateProgress = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    progressEl.style.transform = `scaleX(${Math.min(progress, 100) / 100})`;
+  };
+
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
 }

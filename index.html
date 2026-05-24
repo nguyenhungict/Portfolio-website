@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <!-- Header & Navigation -->
   <header class="header">
     <div class="header-container">
@@ -80,6 +81,20 @@
           <p class="hero-subtitle fade-in-up">
             I am a final-year IT student majoring in <strong>Backend Development</strong>, with a strong interest in building reliable and scalable server-side systems. I am looking for an internship where I can apply <strong>Node.js, Express, NestJS</strong>, and database knowledge in a professional environment.
           </p>
+          <div class="hero-metrics fade-in-up" aria-label="Profile metrics">
+            <div class="metric-chip">
+              <span class="metric-label">GPA</span>
+              <span class="metric-value">3.2/4.0</span>
+            </div>
+            <div class="metric-chip">
+              <span class="metric-label">PROJECTS</span>
+              <span class="metric-value">02</span>
+            </div>
+            <div class="metric-chip">
+              <span class="metric-label">FOCUS</span>
+              <span class="metric-value">BACKEND + AI</span>
+            </div>
+          </div>
           <div class="hero-actions fade-in-up">
             <a class="btn btn-primary" href="#projects">VIEW PROJECTS</a>
             <a class="btn btn-secondary" href="#contact">GET IN TOUCH</a>
@@ -175,6 +190,12 @@
         <div class="project-card fade-in-up" data-category="fullstack backend ai">
           <div class="project-img-placeholder">
             <div class="diag-lines"></div>
+            <div class="code-visual" aria-hidden="true">
+              <span>POST /api/matches/run</span>
+              <span>socket.emit("message:new")</span>
+              <span>gemini.generateQuiz(file)</span>
+              <span>prisma.user.update()</span>
+            </div>
             <div class="proj-badge">TEAM: 6 // BACKEND & AI LEADER</div>
             <span class="proj-tech-stack">NEXT.JS + NESTJS + POSTGRESQL + MONGODB</span>
           </div>
@@ -225,6 +246,12 @@
         <div class="project-card fade-in-up" data-category="fullstack backend ai">
           <div class="project-img-placeholder">
             <div class="diag-lines"></div>
+            <div class="code-visual" aria-hidden="true">
+              <span>GET /places?district=hoankiem</span>
+              <span>postgis.nearby(lat, lng)</span>
+              <span>redis.publish(activity:id)</span>
+              <span>gemini.ask(context)</span>
+            </div>
             <div class="proj-badge">SYS_ARCH: TOURISM PLATFORM</div>
             <span class="proj-tech-stack">NEXT.JS 14 + NESTJS + POSTGIS + REDIS + LEAFLET</span>
           </div>
