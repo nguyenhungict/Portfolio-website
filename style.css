@@ -804,7 +804,184 @@ ul {
   color: var(--accent-color);
 }
 
-/* 8. Contact & Console Section */
+/* 8. Dev Humor Section */
+.humor-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.meme-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.meme-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  background-color: var(--bg-terminal);
+  border: 1px solid rgba(20, 20, 20, 0.35);
+  color: rgba(255, 255, 255, 0.86);
+  transition: var(--transition-swiss);
+}
+
+.meme-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.meme-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(var(--accent-rgb), 0.1), transparent);
+  transform: translateY(-100%);
+  animation: preview-scan 5s linear infinite;
+}
+
+.meme-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 0 rgba(var(--accent-rgb), 0.18);
+}
+
+.meme-topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.meme-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.6);
+}
+
+.meme-title,
+.meme-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.meme-title {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.meme-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+}
+
+.meme-kicker {
+  color: #10B981;
+}
+
+.meme-body p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.meme-body code {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: #FFFFFF;
+  overflow-wrap: anywhere;
+}
+
+.meme-error {
+  color: #F87171 !important;
+}
+
+.meme-warning {
+  color: #FBBF24 !important;
+}
+
+.meme-ok {
+  color: #34D399 !important;
+}
+
+.meme-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.meme-image-card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--border-medium);
+  background-color: var(--bg-card);
+  transition: var(--transition-swiss);
+}
+
+.meme-image-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 62%, rgba(20, 20, 20, 0.72));
+  opacity: 0.92;
+}
+
+.meme-image-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.meme-image-card figcaption {
+  position: absolute;
+  left: var(--space-sm);
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+.meme-image-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--text-primary);
+  box-shadow: 0 10px 0 rgba(var(--accent-rgb), 0.16);
+}
+
+.meme-image-card:hover img {
+  transform: scale(1.045);
+  filter: contrast(1.06) saturate(1.08);
+}
+
+/* 9. Contact & Console Section */
 .contact-section {
   max-width: 1300px;
   margin: 0 auto;
@@ -1016,6 +1193,8 @@ ul {
   }
   .header::after,
   .project-img-placeholder::after,
+  .meme-card::after,
+  .meme-image-card img,
   .code-visual span,
   .badge-mono::after,
   .hero-title .text-accent,
@@ -1049,6 +1228,14 @@ ul {
   
   .project-card {
     grid-template-columns: 1fr;
+  }
+
+  .meme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meme-gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .project-img-placeholder {
@@ -1137,6 +1324,14 @@ ul {
   }
   
   .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meme-gallery {
     grid-template-columns: 1fr;
   }
   
